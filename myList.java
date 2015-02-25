@@ -33,7 +33,7 @@ public class myList
     //sequential Search
     public int seqSearch(int searchval)
     {
-       System.out.println("You need to do some work to get the sequential search to work ");   
+       //System.out.println("You need to do some work to get the sequential search to work ");   
        //Start at the beginning of the list, and then compare consecutive items in list until the item is found
        //or the end of the list is encountered  - the code block below gives a good start
        
@@ -42,11 +42,13 @@ public class myList
         
         while ((!(found) && (pos < size)))
             {
-               System.out.println("Currently checking item number " + pos);     
+              // System.out.println("Currently checking item number " + L[pos]);     
                
                if (searchval==L[pos])
+               {
                  found = true;
                   break;
+                }
              else             
 
                pos++;
@@ -69,19 +71,20 @@ public class myList
         if (first >last)
             return -1;
         
-        System.out.println("Currently checking list starting at " + first + " and ending at " + last);
+        //System.out.println("Currently checking list starting at " + first + " and ending at " + last);
         middle = (int) (first +last)/2;
         if (middle ==size)
             //would try to access data beyond last position
             return -1;
         if (searchval == L[middle])
                 return middle;
-        else 
-            if	()
-                return binSearch()//Add Code here
-            else //searchval < L[middle]
-                return //Add Code here
+
+        else if(searchval >L[middle])
+        return binSearch(searchval,middle+1,last);//Add Code here
+
+        else
+          return binSearch(searchval,first,middle-1);
         
-       return -1;
+      
      }
   }
