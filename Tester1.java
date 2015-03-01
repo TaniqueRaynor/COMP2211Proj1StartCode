@@ -3,6 +3,12 @@ class Tester1 {
 	public Tester1(){
 
 	}
+	public static int val;
+	public static int factorial(int N) { 
+		if (N == 1)
+			return 1;
+		return N * factorial(N-1);
+	} 
 
 	public static int countA(BinaryTree btree){
 		if (btree.emptyTree())
@@ -13,24 +19,24 @@ class Tester1 {
 		{
 			if (btree.getRoot()=='A') {
 				
-				return 1+countA(btree.getLeft())+btree.getRoot()+countA(btree.getRight());
+				return 1+countA(btree.getLeft())+countA(btree.getRight());
 				
 			}
-
-			else
-				return countA(btree.getLeft())+btree.getRoot()+countA(btree.getRight());
+			
+			  return countA(btree.getLeft())+countA(btree.getRight());  
 		}
 
 	}
 
-	public int countLeaves(BinaryTree btree){
-		if (btree.emptyTree())
+	public static int countLeaves(BinaryTree btree){
+			if (btree.emptyTree())
 		{
 			return 0;
 		}
 		else 
 		{
-			return 1+countLeaves(btree.getLeft())+btree.getRoot()+countLeaves(btree.getRight());
+			return 1+countLeaves(btree.getLeft())+countLeaves(btree.getRight());
+			    
 		}
 	}
 
@@ -42,15 +48,10 @@ class Tester1 {
 			
 			return"";
 		}
-		if(btree.getLeft()==null||btree.getLeft()==null)
-		{
-			System.out.println(btree.getRoot());
-			return ""+btree.getRoot();
-		}
 		
 		else{
-			System.out.println(postOrder(btree.getLeft())+postOrder(btree.getRight())+btree.getRoot());
-			return "";
+			return ""+postOrder(btree.getLeft())+postOrder(btree.getRight())+btree.getRoot();
+	
 		}
 	}
 
@@ -60,19 +61,15 @@ class Tester1 {
 		{
 			return "";
 		}
-		else if(btree.getLeft()==null||btree.getRight()==null)
-		{
-			System.out.println(btree.getRoot());
-			return "";
-		}
+	
 		else{
-			System.out.println(inOrder(btree.getLeft())+btree.getRoot()+ inOrder(btree.getRight()));
-			return "";
+			return ""+inOrder(btree.getLeft())+btree.getRoot()+inOrder(btree.getRight());
 		}
 	}
 
 	public static void main(String[] args) {
 		BinaryTree symbolTree=new BinaryTree(new Node('+'));
+		
 		symbolTree.insertNode('/',0);
 		symbolTree.insertNode('*',1);
 		symbolTree.getLeft().insertNode('*',0);
@@ -85,7 +82,10 @@ class Tester1 {
 		symbolTree.getRight().insertNode('-',1);
 		symbolTree.getRight().getRight().insertNode('4',0);
 		symbolTree.getRight().getRight().insertNode('1',1);
-		inOrder(symbolTree);
+		System.out.println(countA(symbolTree));
+		System.out.println(countLeaves(symbolTree));
+		System.out.println(postOrder(symbolTree));
+		System.out.println(inOrder(symbolTree));
 
 		
 
