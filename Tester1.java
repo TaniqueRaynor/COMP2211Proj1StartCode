@@ -3,12 +3,7 @@ class Tester1 {
 	public Tester1(){
 
 	}
-	public static int val;
-	public static int factorial(int N) { 
-		if (N == 1)
-			return 1;
-		return N * factorial(N-1);
-	} 
+
 
 	public static int countA(BinaryTree btree){
 		if (btree.emptyTree())
