@@ -81,6 +81,8 @@ class Tester1 {
 		System.out.println(countLeaves(symbolTree));
 		System.out.println(postOrder(symbolTree));
 		System.out.println(inOrder(symbolTree));
+		RBNode node=new RBNode('b');
+		System.out.println(node.data);
 
 		
 
